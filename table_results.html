@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result Analysis</title>
+	<!-- Link do código em css -->
+	<link rel="stylesheet" type="text/css" href="table_results.css">
+</head>
+<body>
+
+	<h2>Result Analysis</h2>
+	<h3>Top-match</h3>
+	<!-- Preset parágrafo abaixo -->
+	<p></p>
+
+	<!-- Tabela -->
+	<table cellspacing="0">
+		<thead>
+			<!-- Cabeçalho da tabela -->
+			<tr>
+				<th></th>
+				<th class="div">Lesk</th>
+				<th class="div">Word Embedding</th>
+				<th class="div"></th>
+			</tr>
+			<tr>
+				<th>Domain Concept</th>
+				<th class="div">DOLCE Concept</th>
+				<th class="div">DOLCE Concept</th>
+				<th class="div">Evaluation on Lesk</th>
+				<th class=div>Evaluation WE</th>
+			</tr>
+		</thead>
+		<!-- Corpo da tabela ( gerado por script em python)-->
+		<tbody>
+			<tr>
+			<td class='first'>cmt#Bid</td>
+			<td>activity</td>
+			<td>situation</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#Conference</td>
+			<td>simple-planned-collective</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#Decision</td>
+			<td>activity</td>
+			<td>activity</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#Document</td>
+			<td>information-realization</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#Person</td>
+			<td>socially-constructed-person</td>
+			<td>biological-object</td>
+			<td>N</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#Preference</td>
+			<td>cognitive-event</td>
+			<td>quality</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#ProgramCommittee</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>cmt#SubjectArea</td>
+			<td>subject</td>
+			<td>subject</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#City</td>
+			<td>locative-role</td>
+			<td>-</td>
+			<td>N</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#City</td>
+			<td>simple-planned-collective</td>
+			<td>simple-planned-collective</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Contribution</td>
+			<td>qualitative-role</td>
+			<td>task</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Country</td>
+			<td>agentive-figure</td>
+			<td>political-geographic-object</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Event</td>
+			<td>event</td>
+			<td>event</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Event</td>
+			<td>situation</td>
+			<td>-</td>
+			<td>N</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Organization</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Person</td>
+			<td>socially-constructed-person</td>
+			<td>socially-constructed-person</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>ConfOf#Topic</td>
+			<td>situation</td>
+			<td>situation</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Call</td>
+			<td>null</td>
+			<td>situation</td>
+			<td>NULL</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Conference</td>
+			<td>simple-planned-collective</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#ConferenceEvent</td>
+			<td>event</td>
+			<td>event</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#ConferenceSession</td>
+			<td>information-realization</td>
+			<td>temporal-region</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#ContactInformation</td>
+			<td>situation</td>
+			<td>situation</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Country</td>
+			<td>agentive-figure</td>
+			<td>political-geographic-object</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Document</td>
+			<td>information-realization</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Organization</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Person</td>
+			<td>socially-constructed-person</td>
+			<td>socially-constructed-person</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#PersonalHistory</td>
+			<td>temporal-region</td>
+			<td>temporal-region</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Place</td>
+			<td>locative-role</td>
+			<td>qualitative-role</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#ReviewForm</td>
+			<td>information-object</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#ReviewQuestion</td>
+			<td>activity</td>
+			<td>situation</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#ReviewRating</td>
+			<td>cognitive-event</td>
+			<td>status</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Sponsorship</td>
+			<td>activity</td>
+			<td>activity</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>edas#Topic</td>
+			<td>situation</td>
+			<td>subject</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Document</td>
+			<td>information-realization</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Event</td>
+			<td>event</td>
+			<td>event</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Event</td>
+			<td>situation</td>
+			<td>-</td>
+			<td>N</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Location</td>
+			<td>space-region</td>
+			<td>space-region</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Location</td>
+			<td>null</td>
+			<td>-</td>
+			<td>NULL</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Organisation</td>
+			<td>simple-planned-collective</td>
+			<td>-</td>
+			<td>Y</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Organisation</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Person</td>
+			<td>taxonomic-collection</td>
+			<td>biological-object</td>
+			<td>N</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>ekaw#Research_Topic</td>
+			<td>situation</td>
+			<td>situation</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Activity</td>
+			<td>activity</td>
+			<td>phenomenon</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#City</td>
+			<td>locative-role</td>
+			<td>-</td>
+			<td>N</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#City</td>
+			<td>simple-planned-collective</td>
+			<td>simple-planned-collective</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Currency</td>
+			<td>social-role</td>
+			<td>quality</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Item</td>
+			<td>qualitative-role</td>
+			<td>qualitative-role</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Money</td>
+			<td>social-role</td>
+			<td>social-role</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Person</td>
+			<td>taxonomic-collection</td>
+			<td>biological-object</td>
+			<td>N</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Place</td>
+			<td>locative-role</td>
+			<td>locative-role</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#State</td>
+			<td>political-geographic-object</td>
+			<td>political-geographic-object</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Time</td>
+			<td>situation</td>
+			<td>-</td>
+			<td>N</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Time</td>
+			<td>temporal-region</td>
+			<td>temporal-region</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>iasted#Time_zone</td>
+			<td>null</td>
+			<td>locative-role</td>
+			<td>NULL</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Award</td>
+			<td>activity</td>
+			<td>activity</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Award</td>
+			<td>qualitative-role</td>
+			<td>-</td>
+			<td>N</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Committee</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Conference</td>
+			<td>simple-planned-collective</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Deadline</td>
+			<td>temporal-region</td>
+			<td>temporal-region</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Document</td>
+			<td>information-realization</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Fee</td>
+			<td>qualitative-role</td>
+			<td>qualitative-role</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Person</td>
+			<td>taxonomic-collection</td>
+			<td>socially-constructed-person</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Place</td>
+			<td>null</td>
+			<td>locative-role</td>
+			<td>NULL</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>sigkdd#Sponzor</td>
+			<td>null</td>
+			<td></td>
+			<td>NULL</td>
+			<td>NULL</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Committee</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Conference</td>
+			<td>simple-planned-collective</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Conference_Document</td>
+			<td>information-realization</td>
+			<td>information-realization</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Conference_fees</td>
+			<td>null</td>
+			<td>qualitative-role</td>
+			<td>NULL</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Conference_part</td>
+			<td>description-role</td>
+			<td>task</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Conference_proceedings</td>
+			<td>activity</td>
+			<td>activity</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Important_dates</td>
+			<td>null</td>
+			<td>region</td>
+			<td>NULL</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Organization*</td>
+			<td>agentive-figure</td>
+			<td>agentive-figure</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Organizer</td>
+			<td>null</td>
+			<td>situation</td>
+			<td>NULL</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Person</td>
+			<td>taxonomic-collection</td>
+			<td>socially-constructed-person</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Publisher</td>
+			<td>agentive-figure</td>
+			<td>-</td>
+			<td>Y</td>
+			<td>-</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Publisher</td>
+			<td>socially-constructed-person</td>
+			<td>socially-constructed-person</td>
+			<td>Y</td>
+			<td>Y</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Review_expertise</td>
+			<td>parameter</td>
+			<td>parameter</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Review_preference</td>
+			<td>cognitive-event</td>
+			<td>quality</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+			<tr>
+			<td class='first'>Conference#Topic</td>
+			<td>situation</td>
+			<td>situation</td>
+			<td>N</td>
+			<td>N</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/*formatando o corpo html*/
+body{
+	margin: 10px auto;
+	text-align: center;
+}
+/*formatando um border p/ tabela*/
+table{
+	margin: 0 auto;
+	border: 1px solid black;
+}
+/*selecionando segunda table row*/
+tr:nth-of-type(2) th{
+	border-top: 1px solid black;
+}
+/*selecionando todos os th´s*/
+th{
+	text-align: center;
+	padding: 3px 2px;
+}
+
+/*selecionando os th´s para exibirem left border*/
+.div{
+	border-left: 1px solid black;
+}
+/*selecionando todos os td´s*/
+td{
+	text-align: center;
+	padding: 3px 2px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+}
+/*selecionando o primeiro td para não possuir left border*/
+.first{
+	border-left: 0px;
+}
