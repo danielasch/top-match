@@ -2,7 +2,6 @@
 |                      Top-match                        |
 |                                                       |
 |                Command Line Interface version         |
-|                Copyright                              |  
 |                                                       |
 |    This product includes software developed at PUCRS  |
 |    by the NLP team                                    |
@@ -12,7 +11,7 @@
 |                                                       |
 |    Top-match is an ontology matching system that      |
 |    generates alignments between top ontologies        |
-|    (DOLCE, SUMO and DUL) and any domain ontology.     |
+|    (DOLCE, SUMO, and DUL) and any domain ontology.    |
 |                                                       |
 |    If you use top-match, please cite the following    |
 |    publication:                                       |
@@ -51,7 +50,7 @@
 |        ex: C:/Users/.../ontology.owl                  |
 |    -[rdf alignment path] (to be generated)            |
 |        ex: C:/Users/.../alignment.rdf                 |
-|    -[top ontology] (dolce, sumo or dul)               |
+|    -[top ontology] (dolce, sumo, or dul)              |
 |        ex: dolce                                      |
 |    -[alignment technique] (1, 2, or 3)                |
 |        ex: 2                                          |
@@ -61,12 +60,12 @@
 |    Examples:                                          |
 |                                                       |
 |    a) Use top-match to align a domain ontology with   |
-|    dolce, sumo or dul:                                |
+|    dolce, sumo, or dul:                               |
 |    $~java -jar top-match.jar C:/Users/.../ontology.owl|
 |    C:/Users/.../alignment.rdf sumo 2                  |
 |                                                       |
 |    b) Use top-match to align a domain ontology with   |
-|    dolce, sumo or dul and evaluate the genereted      | 
+|    dolce, sumo, or dul and evaluate the generated     | 
 |    alignment with a reference alignment:              |
 |    $~java -jar top-match.jar C:/Users/.../ontology.owl|
 |    C:/Users/.../alignment.rdf sumo 2                  |
