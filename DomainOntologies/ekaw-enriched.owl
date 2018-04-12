@@ -1,0 +1,1200 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY daml "http://www.daml.org/2001/03/daml+oil#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://ekaw#"
+     xml:base="http://ekaw"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://ekaw">
+        <rdfs:comment>Comentários dos conceitos foram extraidos do cambridge dictionary:
+
+http://dictionary.cambridge.org/us/</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ekaw#authorOf -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#authorOf">
+        <rdfs:range rdf:resource="http://ekaw#Document"/>
+        <rdfs:domain rdf:resource="http://ekaw#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#coversTopic -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#coversTopic">
+        <rdfs:range rdf:resource="http://ekaw#Research_Topic"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Event"/>
+                    <rdf:Description rdf:about="http://ekaw#Paper"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#eventOnList -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#eventOnList">
+        <rdfs:domain rdf:resource="http://ekaw#Event"/>
+        <owl:inverseOf rdf:resource="http://ekaw#listsEvent"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Programme_Brochure"/>
+                    <rdf:Description rdf:about="http://ekaw#Web_Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#hasEvent">
+        <rdfs:range rdf:resource="http://ekaw#Event"/>
+        <rdfs:domain rdf:resource="http://ekaw#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#hasPart"/>
+        <owl:inverseOf rdf:resource="http://ekaw#partOfEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#hasPart">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="http://ekaw#partOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#hasReview -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#hasReview">
+        <rdfs:domain rdf:resource="http://ekaw#Paper"/>
+        <rdfs:range rdf:resource="http://ekaw#Review"/>
+        <owl:inverseOf rdf:resource="http://ekaw#reviewOfPaper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#hasReviewer -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#hasReviewer">
+        <rdfs:domain rdf:resource="http://ekaw#Paper"/>
+        <rdfs:range rdf:resource="http://ekaw#Possible_Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#hasUpdatedVersion -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#hasUpdatedVersion">
+        <rdfs:range rdf:resource="http://ekaw#Document"/>
+        <rdfs:domain rdf:resource="http://ekaw#Document"/>
+        <owl:inverseOf rdf:resource="http://ekaw#updatedVersionOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#heldIn -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#heldIn">
+        <rdfs:domain rdf:resource="http://ekaw#Event"/>
+        <rdfs:range rdf:resource="http://ekaw#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#inverse_of_partOf_7 -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#inverse_of_partOf_7">
+        <rdfs:range rdf:resource="http://ekaw#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#hasPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#listsEvent -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#listsEvent">
+        <rdfs:range rdf:resource="http://ekaw#Event"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Programme_Brochure"/>
+                    <rdf:Description rdf:about="http://ekaw#Web_Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#locationOf -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#locationOf">
+        <rdfs:range rdf:resource="http://ekaw#Event"/>
+        <rdfs:domain rdf:resource="http://ekaw#Location"/>
+        <owl:inverseOf rdf:resource="http://ekaw#heldIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#organisedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#organisedBy">
+        <rdfs:domain rdf:resource="http://ekaw#Event"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Organisation"/>
+                    <rdf:Description rdf:about="http://ekaw#Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#organises -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#organises">
+        <rdfs:range rdf:resource="http://ekaw#Event"/>
+        <owl:inverseOf rdf:resource="http://ekaw#organisedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Organisation"/>
+                    <rdf:Description rdf:about="http://ekaw#Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#paperInVolume -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#paperInVolume"/>
+    
+
+
+    <!-- http://ekaw#paperPresentedAs -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#paperPresentedAs">
+        <rdfs:range rdf:resource="http://ekaw#Individual_Presentation"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Abstract"/>
+                    <rdf:Description rdf:about="http://ekaw#Paper"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#partOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#partOfEvent -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#partOfEvent">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://ekaw#Event"/>
+        <rdfs:range rdf:resource="http://ekaw#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#partOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#presentationOfPaper -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#presentationOfPaper">
+        <rdfs:domain rdf:resource="http://ekaw#Individual_Presentation"/>
+        <owl:inverseOf rdf:resource="http://ekaw#paperPresentedAs"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Abstract"/>
+                    <rdf:Description rdf:about="http://ekaw#Paper"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#publisherOf -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#publisherOf">
+        <rdfs:domain rdf:resource="http://ekaw#Organisation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Flyer"/>
+                    <rdf:Description rdf:about="http://ekaw#Multi-author_Volume"/>
+                    <rdf:Description rdf:about="http://ekaw#Programme_Brochure"/>
+                    <rdf:Description rdf:about="http://ekaw#Web_Site"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#referencedIn -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#referencedIn"/>
+    
+
+
+    <!-- http://ekaw#references -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#references">
+        <owl:inverseOf rdf:resource="http://ekaw#referencedIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#reviewOfPaper -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#reviewOfPaper">
+        <rdfs:range rdf:resource="http://ekaw#Paper"/>
+        <rdfs:domain rdf:resource="http://ekaw#Review"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#reviewWrittenBy -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#reviewWrittenBy">
+        <rdfs:range rdf:resource="http://ekaw#Possible_Reviewer"/>
+        <rdfs:domain rdf:resource="http://ekaw#Review"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#writtenBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#reviewerOfPaper -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#reviewerOfPaper">
+        <rdfs:range rdf:resource="http://ekaw#Paper"/>
+        <rdfs:domain rdf:resource="http://ekaw#Possible_Reviewer"/>
+        <owl:inverseOf rdf:resource="http://ekaw#hasReviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#scientificallyOrganisedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#scientificallyOrganisedBy">
+        <rdfs:range rdf:resource="http://ekaw#Academic_Institution"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#organisedBy"/>
+        <owl:inverseOf rdf:resource="http://ekaw#scientificallyOrganises"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#scientificallyOrganises -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#scientificallyOrganises">
+        <rdfs:domain rdf:resource="http://ekaw#Academic_Institution"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#organises"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#technicallyOrganisedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#technicallyOrganisedBy">
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#organisedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#technicallyOrganises -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#technicallyOrganises">
+        <rdfs:domain rdf:resource="http://ekaw#Organisation"/>
+        <rdfs:subPropertyOf rdf:resource="http://ekaw#organises"/>
+        <owl:inverseOf rdf:resource="http://ekaw#technicallyOrganisedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#topicCoveredBy -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#topicCoveredBy">
+        <rdfs:domain rdf:resource="http://ekaw#Research_Topic"/>
+        <owl:inverseOf rdf:resource="http://ekaw#coversTopic"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ekaw#Event"/>
+                    <rdf:Description rdf:about="http://ekaw#Paper"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#updatedVersionOf -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#updatedVersionOf">
+        <rdfs:domain rdf:resource="http://ekaw#Document"/>
+        <rdfs:range rdf:resource="http://ekaw#Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#volumeContainsPaper -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#volumeContainsPaper">
+        <owl:inverseOf rdf:resource="http://ekaw#paperInVolume"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ekaw#writtenBy -->
+
+    <owl:ObjectProperty rdf:about="http://ekaw#writtenBy">
+        <rdfs:domain rdf:resource="http://ekaw#Document"/>
+        <rdfs:range rdf:resource="http://ekaw#Person"/>
+        <owl:inverseOf rdf:resource="http://ekaw#authorOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ekaw#Abstract -->
+
+    <owl:Class rdf:about="http://ekaw#Abstract">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Academic_Institution -->
+
+    <owl:Class rdf:about="http://ekaw#Academic_Institution">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Organisation"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Organising_Agency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Accepted_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Accepted_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Evaluated_Paper"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#hasReview"/>
+                <owl:someValuesFrom rdf:resource="http://ekaw#Positive_Review"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ekaw#Camera_Ready_Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Rejected_Paper"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Accepted paper to become part of proceedings. 
+Note that camera-ready paper is not considered as &apos;accepted paper&apos;, as it was accepted in a different form!</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Agency_Staff_Member -->
+
+    <owl:Class rdf:about="http://ekaw#Agency_Staff_Member">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Assigned_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Assigned_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Submitted_Paper"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#hasReviewer"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Camera_Ready_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Camera_Ready_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#writtenBy"/>
+                <owl:someValuesFrom rdf:resource="http://ekaw#Conference_Participant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#updatedVersionOf"/>
+                <owl:someValuesFrom rdf:resource="http://ekaw#Accepted_Paper"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ekaw#Evaluated_Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Submitted_Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference -->
+
+    <owl:Class rdf:about="http://ekaw#Conference">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Scientific_Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Contributed_Talk"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Invited_Talk"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Session"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Social_Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Track"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+        <rdfs:comment rdf:datatype="&xsd;string">One edition of a conference</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference_Banquet -->
+
+    <owl:Class rdf:about="http://ekaw#Conference_Banquet">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Social_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Conference_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop_Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference_Participant -->
+
+    <owl:Class rdf:about="http://ekaw#Conference_Participant">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference_Proceedings -->
+
+    <owl:Class rdf:about="http://ekaw#Conference_Proceedings">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Proceedings"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#volumeContainsPaper"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ekaw#Conference_Paper"/>
+                            <rdf:Description rdf:about="http://ekaw#Invited_Talk_Abstract"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference_Session -->
+
+    <owl:Class rdf:about="http://ekaw#Conference_Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Session"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#partOfEvent"/>
+                <owl:someValuesFrom rdf:resource="http://ekaw#Conference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop_Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Conference_Trip -->
+
+    <owl:Class rdf:about="http://ekaw#Conference_Trip">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Social_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Contributed_Talk -->
+
+    <owl:Class rdf:about="http://ekaw#Contributed_Talk">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Individual_Presentation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#presentationOfPaper"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#presentationOfPaper"/>
+                <owl:someValuesFrom rdf:resource="http://ekaw#Camera_Ready_Paper"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ekaw#Invited_Talk"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Session"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Social_Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Track"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Demo_Chair -->
+
+    <owl:Class rdf:about="http://ekaw#Demo_Chair">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Demo_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Demo_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Industrial_Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Poster_Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Regular_Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Demo_Session -->
+
+    <owl:Class rdf:about="http://ekaw#Demo_Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Session"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Poster_Session"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Regular_Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Document -->
+
+    <owl:Class rdf:about="http://ekaw#Document">
+        <owl:disjointWith rdf:resource="http://ekaw#Person"/>
+        <rdfs:comment>a paper or set of papers with written or printed information, especially of an official type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Early-Registered_Participant -->
+
+    <owl:Class rdf:about="http://ekaw#Early-Registered_Participant">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Late-Registered_Participant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Evaluated_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Evaluated_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Assigned_Paper"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#hasReview"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Event -->
+
+    <owl:Class rdf:about="http://ekaw#Event">
+        <owl:disjointWith rdf:resource="http://ekaw#Person"/>
+        <rdfs:comment>an activity that is planned for a special purpose and usually involves a lot of people, for example, a meeting, party, trade show, or conference</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Flyer -->
+
+    <owl:Class rdf:about="http://ekaw#Flyer">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Multi-author_Volume"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Proceedings"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Programme_Brochure"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Web_Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Individual_Presentation -->
+
+    <owl:Class rdf:about="http://ekaw#Individual_Presentation">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Scientific_Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Industrial_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Industrial_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Poster_Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Regular_Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop_Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Industrial_Session -->
+
+    <owl:Class rdf:about="http://ekaw#Industrial_Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Invited_Speaker -->
+
+    <owl:Class rdf:about="http://ekaw#Invited_Speaker">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Presenter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Invited_Talk -->
+
+    <owl:Class rdf:about="http://ekaw#Invited_Talk">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Individual_Presentation"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Session"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Social_Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Track"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Invited_Talk_Abstract -->
+
+    <owl:Class rdf:about="http://ekaw#Invited_Talk_Abstract">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Abstract"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Late-Registered_Participant -->
+
+    <owl:Class rdf:about="http://ekaw#Late-Registered_Participant">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Location -->
+
+    <owl:Class rdf:about="http://ekaw#Location">
+        <owl:disjointWith rdf:resource="http://ekaw#Person"/>
+        <rdfs:comment>a particular place or position</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Multi-author_Volume -->
+
+    <owl:Class rdf:about="http://ekaw#Multi-author_Volume">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Programme_Brochure"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Web_Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Negative_Review -->
+
+    <owl:Class rdf:about="http://ekaw#Negative_Review">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Neutral_Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Positive_Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Neutral_Review -->
+
+    <owl:Class rdf:about="http://ekaw#Neutral_Review">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Positive_Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#OC_Chair -->
+
+    <owl:Class rdf:about="http://ekaw#OC_Chair">
+        <rdfs:subClassOf rdf:resource="http://ekaw#OC_Member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#OC_Member -->
+
+    <owl:Class rdf:about="http://ekaw#OC_Member">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Organisation -->
+
+    <owl:Class rdf:about="http://ekaw#Organisation">
+        <owl:disjointWith rdf:resource="http://ekaw#Person"/>
+        <rdfs:comment>a group of people who work together in an organized way for a shared purpose</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Organising_Agency -->
+
+    <owl:Class rdf:about="http://ekaw#Organising_Agency">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#PC_Chair -->
+
+    <owl:Class rdf:about="http://ekaw#PC_Chair">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+        <rdfs:subClassOf rdf:resource="http://ekaw#PC_Member"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial_Chair"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop_Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#PC_Member -->
+
+    <owl:Class rdf:about="http://ekaw#PC_Member">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Possible_Reviewer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Proceedings"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Programme_Brochure"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Web_Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Paper_Author -->
+
+    <owl:Class rdf:about="http://ekaw#Paper_Author">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Person -->
+
+    <owl:Class rdf:about="http://ekaw#Person">
+        <rdfs:comment>man or woman</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Positive_Review -->
+
+    <owl:Class rdf:about="http://ekaw#Positive_Review">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Possible_Reviewer -->
+
+    <owl:Class rdf:about="http://ekaw#Possible_Reviewer">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Poster_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Poster_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Regular_Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Poster_Session -->
+
+    <owl:Class rdf:about="http://ekaw#Poster_Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Session"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Regular_Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Presenter -->
+
+    <owl:Class rdf:about="http://ekaw#Presenter">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Proceedings -->
+
+    <owl:Class rdf:about="http://ekaw#Proceedings">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Multi-author_Volume"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#volumeContainsPaper"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#volumeContainsPaper"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ekaw#Accepted_Paper"/>
+                            <rdf:Description rdf:about="http://ekaw#Invited_Talk_Abstract"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ekaw#Programme_Brochure"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Web_Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Proceedings_Publisher -->
+
+    <owl:Class rdf:about="http://ekaw#Proceedings_Publisher">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Programme_Brochure -->
+
+    <owl:Class rdf:about="http://ekaw#Programme_Brochure">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Review"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Web_Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Regular_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Regular_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Regular_Session -->
+
+    <owl:Class rdf:about="http://ekaw#Regular_Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Rejected_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Rejected_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Evaluated_Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Research_Institute -->
+
+    <owl:Class rdf:about="http://ekaw#Research_Institute">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Academic_Institution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Research_Topic -->
+
+    <owl:Class rdf:about="http://ekaw#Research_Topic">
+        <rdfs:comment>a subject that is discussed, written about, or studied</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Review -->
+
+    <owl:Class rdf:about="http://ekaw#Review">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Web_Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#SC_Member -->
+
+    <owl:Class rdf:about="http://ekaw#SC_Member">
+        <rdfs:subClassOf rdf:resource="http://ekaw#PC_Member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Scientific_Event -->
+
+    <owl:Class rdf:about="http://ekaw#Scientific_Event">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Session -->
+
+    <owl:Class rdf:about="http://ekaw#Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Scientific_Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#partOfEvent"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ekaw#Conference"/>
+                            <rdf:Description rdf:about="http://ekaw#Workshop"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#hasEvent"/>
+                <owl:someValuesFrom rdf:resource="http://ekaw#Individual_Presentation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ekaw#partOfEvent"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ekaw#Conference"/>
+                            <rdf:Description rdf:about="http://ekaw#Track"/>
+                            <rdf:Description rdf:about="http://ekaw#Workshop"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ekaw#Track"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Session_Chair -->
+
+    <owl:Class rdf:about="http://ekaw#Session_Chair">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+        <rdfs:subClassOf rdf:resource="http://ekaw#PC_Member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Social_Event -->
+
+    <owl:Class rdf:about="http://ekaw#Social_Event">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Track"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Student -->
+
+    <owl:Class rdf:about="http://ekaw#Student">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Submitted_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Submitted_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Track -->
+
+    <owl:Class rdf:about="http://ekaw#Track">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Scientific_Event"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Tutorial"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Tutorial -->
+
+    <owl:Class rdf:about="http://ekaw#Tutorial">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Individual_Presentation"/>
+        <owl:disjointWith rdf:resource="http://ekaw#Workshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Tutorial_Abstract -->
+
+    <owl:Class rdf:about="http://ekaw#Tutorial_Abstract">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Abstract"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Tutorial_Chair -->
+
+    <owl:Class rdf:about="http://ekaw#Tutorial_Chair">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+        <rdfs:subClassOf rdf:resource="http://ekaw#PC_Member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#University -->
+
+    <owl:Class rdf:about="http://ekaw#University">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Academic_Institution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Web_Site -->
+
+    <owl:Class rdf:about="http://ekaw#Web_Site">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Workshop -->
+
+    <owl:Class rdf:about="http://ekaw#Workshop">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Scientific_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Workshop_Chair -->
+
+    <owl:Class rdf:about="http://ekaw#Workshop_Chair">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Conference_Participant"/>
+        <rdfs:subClassOf rdf:resource="http://ekaw#PC_Member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Workshop_Paper -->
+
+    <owl:Class rdf:about="http://ekaw#Workshop_Paper">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ekaw#Workshop_Session -->
+
+    <owl:Class rdf:about="http://ekaw#Workshop_Session">
+        <rdfs:subClassOf rdf:resource="http://ekaw#Session"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

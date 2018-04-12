@@ -1,0 +1,2601 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://iasted#"
+     xml:base="http://iasted"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://iasted">
+        <rdfs:comment>Comentários dos conceitos foram extraidos do cambridge dictionary:
+
+http://dictionary.cambridge.org/us/</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#give -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#give">
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#is_given_by"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Item"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#go_through -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#go_through">
+        <rdfs:range rdf:resource="http://iasted#Activity"/>
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_connected_with -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_connected_with">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Item"/>
+                    <rdf:Description rdf:about="http://iasted#Place"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_designed_for -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_designed_for">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Money"/>
+                    <rdf:Description rdf:about="http://iasted#Time"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_equipped_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_equipped_by">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_given_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_given_by">
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Item"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_given_to -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_given_to">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_held_after -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_held_after">
+        <rdfs:domain rdf:resource="http://iasted#Activity"/>
+        <rdfs:range rdf:resource="http://iasted#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_held_before -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_held_before">
+        <rdfs:domain rdf:resource="http://iasted#Activity"/>
+        <rdfs:range rdf:resource="http://iasted#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_held_in -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_held_in">
+        <rdfs:domain rdf:resource="http://iasted#Activity"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Place"/>
+                    <rdf:Description rdf:about="http://iasted#Time"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_made_from -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_made_from">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_needed_for -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_needed_for">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#need"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_occupied_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_occupied_by">
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#occupy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Building"/>
+                    <rdf:Description rdf:about="http://iasted#City"/>
+                    <rdf:Description rdf:about="http://iasted#State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_paid_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_paid_by">
+        <rdfs:domain rdf:resource="http://iasted#Money"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#pay"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_paid_for -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_paid_for">
+        <rdfs:domain rdf:resource="http://iasted#Money"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Item"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_paid_in -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_paid_in">
+        <rdfs:range rdf:resource="http://iasted#Building"/>
+        <rdfs:domain rdf:resource="http://iasted#Money"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_paid_with -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_paid_with">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Money"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_prepared_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_prepared_by">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_present -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_present">
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <rdfs:range rdf:resource="http://iasted#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_present_in -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_present_in">
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Place"/>
+                    <rdf:Description rdf:about="http://iasted#Time"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_sent_after -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_sent_after">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_sent_before -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_sent_before">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_sent_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_sent_by">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#send"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_signed_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_signed_by">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#sign"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_situated_in -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_situated_in">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Building"/>
+                    <rdf:Description rdf:about="http://iasted#City"/>
+                    <rdf:Description rdf:about="http://iasted#Place"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Building"/>
+                    <rdf:Description rdf:about="http://iasted#City"/>
+                    <rdf:Description rdf:about="http://iasted#Place"/>
+                    <rdf:Description rdf:about="http://iasted#State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_used_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_used_by">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_used_for -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_used_for">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Activity"/>
+                    <rdf:Description rdf:about="http://iasted#Money"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_visited_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_visited_by">
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Building"/>
+                    <rdf:Description rdf:about="http://iasted#City"/>
+                    <rdf:Description rdf:about="http://iasted#State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#is_writen_by -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#is_writen_by">
+        <rdfs:domain rdf:resource="http://iasted#Item"/>
+        <rdfs:range rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#need -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#need">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#obtain -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#obtain">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#occupy -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#occupy">
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Building"/>
+                    <rdf:Description rdf:about="http://iasted#City"/>
+                    <rdf:Description rdf:about="http://iasted#State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#pay -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#pay">
+        <rdfs:range rdf:resource="http://iasted#Money"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#prepare -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#prepare">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#is_prepared_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#send -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#send">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#sign -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#sign">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#speak_in -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#speak_in">
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted#Place"/>
+                    <rdf:Description rdf:about="http://iasted#Time"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted#write -->
+
+    <owl:ObjectProperty rdf:about="http://iasted#write">
+        <rdfs:range rdf:resource="http://iasted#Item"/>
+        <rdfs:domain rdf:resource="http://iasted#Person"/>
+        <owl:inverseOf rdf:resource="http://iasted#is_writen_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#done_till -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted#done_till">
+        <rdfs:domain rdf:resource="http://iasted#Deadline"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted#has_amount_of -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted#has_amount_of">
+        <rdfs:domain rdf:resource="http://iasted#Money"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted#is_dated_on -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted#is_dated_on">
+        <rdfs:domain rdf:resource="http://iasted#Activity"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#Accepting_manuscript -->
+
+    <owl:Class rdf:about="http://iasted#Accepting_manuscript">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_before_conference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Activity -->
+
+    <owl:Class rdf:about="http://iasted#Activity">
+        <rdfs:comment>the work of a group or organization to achieve an aim</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Activity_after_conference -->
+
+    <owl:Class rdf:about="http://iasted#Activity_after_conference">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_after"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_days"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Activity_before_conference -->
+
+    <owl:Class rdf:about="http://iasted#Activity_before_conference">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_before"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_days"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Audiovisual_equipment -->
+
+    <owl:Class rdf:about="http://iasted#Audiovisual_equipment">
+        <rdfs:subClassOf rdf:resource="http://iasted#Item"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Session_room"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_used_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Speaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Listener"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Author -->
+
+    <owl:Class rdf:about="http://iasted#Author">
+        <rdfs:subClassOf rdf:resource="http://iasted#Speaker"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#prepare"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Transparency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Brief_introduction_for_Session_chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Author_attendee_book_registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Author_attendee_book_registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Registration_fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Book_proceeding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Author_attendee_cd_registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Author_attendee_cd_registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Registration_fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Cd_proceening"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Author_book_proceedings_included -->
+
+    <owl:Class rdf:about="http://iasted#Author_book_proceedings_included">
+        <rdfs:subClassOf rdf:resource="http://iasted#Author"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#obtain"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Book_proceeding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Author_cd_proceedings_included -->
+
+    <owl:Class rdf:about="http://iasted#Author_cd_proceedings_included">
+        <rdfs:subClassOf rdf:resource="http://iasted#Author"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#obtain"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Cd_proceening"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Author_information_form -->
+
+    <owl:Class rdf:about="http://iasted#Author_information_form">
+        <rdfs:subClassOf rdf:resource="http://iasted#Form"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_sent_after"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Deadline_for_notification_of_acceptance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Bank_transfer -->
+
+    <owl:Class rdf:about="http://iasted#Bank_transfer">
+        <rdfs:subClassOf rdf:resource="http://iasted#Payment_document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Book_proceeding -->
+
+    <owl:Class rdf:about="http://iasted#Book_proceeding">
+        <rdfs:subClassOf rdf:resource="http://iasted#Publication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Brief_introduction_for_Session_chair -->
+
+    <owl:Class rdf:about="http://iasted#Brief_introduction_for_Session_chair">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Author"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_to"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Session_chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Building -->
+
+    <owl:Class rdf:about="http://iasted#Building">
+        <rdfs:subClassOf rdf:resource="http://iasted#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Camera_ready_manuscript_deadline -->
+
+    <owl:Class rdf:about="http://iasted#Camera_ready_manuscript_deadline">
+        <rdfs:subClassOf rdf:resource="http://iasted#Deadline"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Car -->
+
+    <owl:Class rdf:about="http://iasted#Car">
+        <rdfs:subClassOf rdf:resource="http://iasted#Transport_vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Card -->
+
+    <owl:Class rdf:about="http://iasted#Card">
+        <rdfs:subClassOf rdf:resource="http://iasted#Item"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Cd_proceening -->
+
+    <owl:Class rdf:about="http://iasted#Cd_proceening">
+        <rdfs:subClassOf rdf:resource="http://iasted#Publication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Cheque -->
+
+    <owl:Class rdf:about="http://iasted#Cheque">
+        <rdfs:subClassOf rdf:resource="http://iasted#Payment_document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#City -->
+
+    <owl:Class rdf:about="http://iasted#City">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#State"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>a place where many people live, with many houses, stores, businesses, etc., and which is bigger than a town</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Coctail_reception -->
+
+    <owl:Class rdf:about="http://iasted#Coctail_reception">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Coffee_break -->
+
+    <owl:Class rdf:about="http://iasted#Coffee_break">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Computer -->
+
+    <owl:Class rdf:about="http://iasted#Computer">
+        <rdfs:subClassOf rdf:resource="http://iasted#Audiovisual_equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_Hiker -->
+
+    <owl:Class rdf:about="http://iasted#Conference_Hiker">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#go_through"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Full_day_tour"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_activity -->
+
+    <owl:Class rdf:about="http://iasted#Conference_activity">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_days"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_airport -->
+
+    <owl:Class rdf:about="http://iasted#Conference_airport">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_building -->
+
+    <owl:Class rdf:about="http://iasted#Conference_building">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_city -->
+
+    <owl:Class rdf:about="http://iasted#Conference_city">
+        <rdfs:subClassOf rdf:resource="http://iasted#City"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_visited_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_days -->
+
+    <owl:Class rdf:about="http://iasted#Conference_days">
+        <rdfs:subClassOf rdf:resource="http://iasted#Time"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_hall -->
+
+    <owl:Class rdf:about="http://iasted#Conference_hall">
+        <rdfs:subClassOf rdf:resource="http://iasted#Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_building"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_hotel -->
+
+    <owl:Class rdf:about="http://iasted#Conference_hotel">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Hotel_presenter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_restaurant -->
+
+    <owl:Class rdf:about="http://iasted#Conference_restaurant">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Conference_state -->
+
+    <owl:Class rdf:about="http://iasted#Conference_state">
+        <rdfs:subClassOf rdf:resource="http://iasted#State"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_visited_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Credit_card -->
+
+    <owl:Class rdf:about="http://iasted#Credit_card">
+        <rdfs:subClassOf rdf:resource="http://iasted#Card"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted#Fee"/>
+                            <rdf:Description rdf:about="http://iasted#Sponzorship"/>
+                            <rdf:Description rdf:about="http://iasted#Tax"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Currency -->
+
+    <owl:Class rdf:about="http://iasted#Currency">
+        <rdfs:comment>the system of money that is used in a particular country at a particular time</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Deadline -->
+
+    <owl:Class rdf:about="http://iasted#Deadline">
+        <rdfs:subClassOf rdf:resource="http://iasted#Time"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Deadline_for_notification_of_acceptance -->
+
+    <owl:Class rdf:about="http://iasted#Deadline_for_notification_of_acceptance">
+        <rdfs:subClassOf rdf:resource="http://iasted#Deadline"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Deadline_hotel_reservation -->
+
+    <owl:Class rdf:about="http://iasted#Deadline_hotel_reservation">
+        <rdfs:subClassOf rdf:resource="http://iasted#Deadline"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Delegate -->
+
+    <owl:Class rdf:about="http://iasted#Delegate">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted#go_through"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted#Registration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted#is_present_in"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted#Conference_building"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted#is_present_in"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted#Conference_days"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#need"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Viza"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_house"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#pay"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Registration_fee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#obtain"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Invitation_letter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#send"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Registration_form"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Departure -->
+
+    <owl:Class rdf:about="http://iasted#Departure">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_after_conference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Departure_tax -->
+
+    <owl:Class rdf:about="http://iasted#Departure_tax">
+        <rdfs:subClassOf rdf:resource="http://iasted#Tax"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Departure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Dinner_banquet -->
+
+    <owl:Class rdf:about="http://iasted#Dinner_banquet">
+        <rdfs:subClassOf rdf:resource="http://iasted#Social_program"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://iasted#One_day_presenter"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Document -->
+
+    <owl:Class rdf:about="http://iasted#Document">
+        <rdfs:subClassOf rdf:resource="http://iasted#Item"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Double_hotel_room -->
+
+    <owl:Class rdf:about="http://iasted#Double_hotel_room">
+        <rdfs:subClassOf rdf:resource="http://iasted#Hotel_room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Fee -->
+
+    <owl:Class rdf:about="http://iasted#Fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Money"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_with"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted#Credit_card"/>
+                            <rdf:Description rdf:about="http://iasted#Payment_document"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Fee_for_extra_trip -->
+
+    <owl:Class rdf:about="http://iasted#Fee_for_extra_trip">
+        <rdfs:subClassOf rdf:resource="http://iasted#Fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_Hiker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Full_day_tour"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Final_manuscript -->
+
+    <owl:Class rdf:about="http://iasted#Final_manuscript">
+        <rdfs:subClassOf rdf:resource="http://iasted#Submission"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#go_through"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Accepting_manuscript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Form -->
+
+    <owl:Class rdf:about="http://iasted#Form">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_to"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Full_day_tour -->
+
+    <owl:Class rdf:about="http://iasted#Full_day_tour">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_after_conference"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Trip_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Trip_day"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Hotel_fee -->
+
+    <owl:Class rdf:about="http://iasted#Hotel_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Hotel_presenter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Hotel_presenter -->
+
+    <owl:Class rdf:about="http://iasted#Hotel_presenter">
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted#Conference_hotel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted#pay"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted#Hotel_fee"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Hotel_registration_form -->
+
+    <owl:Class rdf:about="http://iasted#Hotel_registration_form">
+        <rdfs:subClassOf rdf:resource="http://iasted#Form"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_sent_before"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Deadline_hotel_reservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Hotel_room -->
+
+    <owl:Class rdf:about="http://iasted#Hotel_room">
+        <rdfs:subClassOf rdf:resource="http://iasted#Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_hotel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Hotel_presenter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#IASTED_member -->
+
+    <owl:Class rdf:about="http://iasted#IASTED_member">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#pay"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Memeber_registration_fee"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#IASTED_non_member -->
+
+    <owl:Class rdf:about="http://iasted#IASTED_non_member">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#pay"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Nonmember_registration_fee"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Initial_manuscipt -->
+
+    <owl:Class rdf:about="http://iasted#Initial_manuscipt">
+        <rdfs:subClassOf rdf:resource="http://iasted#Submission"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#go_through"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Refusing_manuscript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Introduction -->
+
+    <owl:Class rdf:about="http://iasted#Introduction">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Introduction_of_speaker -->
+
+    <owl:Class rdf:about="http://iasted#Introduction_of_speaker">
+        <rdfs:subClassOf rdf:resource="http://iasted#Introduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Invitation_letter -->
+
+    <owl:Class rdf:about="http://iasted#Invitation_letter">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Item -->
+
+    <owl:Class rdf:about="http://iasted#Item">
+        <rdfs:comment>one thing that is a part of a list or a collection of things</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#LCD_projector -->
+
+    <owl:Class rdf:about="http://iasted#LCD_projector">
+        <rdfs:subClassOf rdf:resource="http://iasted#Audiovisual_equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Lecture -->
+
+    <owl:Class rdf:about="http://iasted#Lecture">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Listener"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Lecturer -->
+
+    <owl:Class rdf:about="http://iasted#Lecturer">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Session"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Author"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#speak_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Session_room"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Listener -->
+
+    <owl:Class rdf:about="http://iasted#Listener">
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#sign"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Record_of_attendance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_present_in"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted#Conference_hall"/>
+                            <rdf:Description rdf:about="http://iasted#Session_room"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Mailing_list -->
+
+    <owl:Class rdf:about="http://iasted#Mailing_list">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Main_office -->
+
+    <owl:Class rdf:about="http://iasted#Main_office">
+        <rdfs:subClassOf rdf:resource="http://iasted#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Memeber_registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Memeber_registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Registration_fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#IASTED_member"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Modelling -->
+
+    <owl:Class rdf:about="http://iasted#Modelling">
+        <rdfs:subClassOf rdf:resource="http://iasted#Research"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Money -->
+
+    <owl:Class rdf:about="http://iasted#Money">
+        <rdfs:comment>coins or notes (= special pieces of paper) that are used to buy things, or an amount of these that a person has</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Non_speaker -->
+
+    <owl:Class rdf:about="http://iasted#Non_speaker">
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+        <owl:disjointWith rdf:resource="http://iasted#Speaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Nonauthor_registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Nonauthor_registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Registration_fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Non_speaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Nonmember_registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Nonmember_registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Registration_fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#IASTED_non_member"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#One_conference_day -->
+
+    <owl:Class rdf:about="http://iasted#One_conference_day">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_days"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#One_day_presenter -->
+
+    <owl:Class rdf:about="http://iasted#One_day_presenter">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_present"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Overhead_projector -->
+
+    <owl:Class rdf:about="http://iasted#Overhead_projector">
+        <rdfs:subClassOf rdf:resource="http://iasted#Audiovisual_equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Payment_document -->
+
+    <owl:Class rdf:about="http://iasted#Payment_document">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted#Fee"/>
+                            <rdf:Description rdf:about="http://iasted#Tax"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Person -->
+
+    <owl:Class rdf:about="http://iasted#Person">
+        <rdfs:comment>man or woman</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Place -->
+
+    <owl:Class rdf:about="http://iasted#Place">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>a suitable area, building, situation, or occasion</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Plenary_lecture -->
+
+    <owl:Class rdf:about="http://iasted#Plenary_lecture">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Plenary_lecture_speaker"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Lecture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Plenary_lecture_speaker -->
+
+    <owl:Class rdf:about="http://iasted#Plenary_lecture_speaker">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Tutorial"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Author"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#speak_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_hall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#PowerPoint_presentation -->
+
+    <owl:Class rdf:about="http://iasted#PowerPoint_presentation">
+        <rdfs:subClassOf rdf:resource="http://iasted#Presentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Presentation -->
+
+    <owl:Class rdf:about="http://iasted#Presentation">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Presenter_city -->
+
+    <owl:Class rdf:about="http://iasted#Presenter_city">
+        <rdfs:subClassOf rdf:resource="http://iasted#City"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Presenter_house -->
+
+    <owl:Class rdf:about="http://iasted#Presenter_house">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Presenter_state -->
+
+    <owl:Class rdf:about="http://iasted#Presenter_state">
+        <rdfs:subClassOf rdf:resource="http://iasted#State"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Presenter_university -->
+
+    <owl:Class rdf:about="http://iasted#Presenter_university">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Presenter_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Publication -->
+
+    <owl:Class rdf:about="http://iasted#Publication">
+        <rdfs:subClassOf rdf:resource="http://iasted#Item"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_made_from"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Final_manuscript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Receiving_manuscript -->
+
+    <owl:Class rdf:about="http://iasted#Receiving_manuscript">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_before_conference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Record_of_attendance -->
+
+    <owl:Class rdf:about="http://iasted#Record_of_attendance">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Session_room"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_signed_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Listener"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Refusing_manuscript -->
+
+    <owl:Class rdf:about="http://iasted#Refusing_manuscript">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_before_conference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Registation_deadline -->
+
+    <owl:Class rdf:about="http://iasted#Registation_deadline">
+        <rdfs:subClassOf rdf:resource="http://iasted#Deadline"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Registration -->
+
+    <owl:Class rdf:about="http://iasted#Registration">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Registration_form -->
+
+    <owl:Class rdf:about="http://iasted#Registration_form">
+        <rdfs:subClassOf rdf:resource="http://iasted#Form"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_sent_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_sent_before"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Registation_deadline"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Renting -->
+
+    <owl:Class rdf:about="http://iasted#Renting">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_before_conference"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_connected_with"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Car"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Research -->
+
+    <owl:Class rdf:about="http://iasted#Research">
+        <rdfs:subClassOf rdf:resource="http://iasted#Activity_before_conference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Review -->
+
+    <owl:Class rdf:about="http://iasted#Review">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_writen_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Reviewer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Reviewer -->
+
+    <owl:Class rdf:about="http://iasted#Reviewer">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Review"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Speaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Session -->
+
+    <owl:Class rdf:about="http://iasted#Session">
+        <rdfs:subClassOf rdf:resource="http://iasted#Lecture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_held_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Session_room"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted#Author"/>
+                            <rdf:Description rdf:about="http://iasted#Session_chair"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Session_chair -->
+
+    <owl:Class rdf:about="http://iasted#Session_chair">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#go_through"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Introduction_of_speaker"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#obtain"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Brief_introduction_for_Session_chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Session_room -->
+
+    <owl:Class rdf:about="http://iasted#Session_room">
+        <rdfs:subClassOf rdf:resource="http://iasted#Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_building"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_equipped_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Audiovisual_equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Shuttle_bus -->
+
+    <owl:Class rdf:about="http://iasted#Shuttle_bus">
+        <rdfs:subClassOf rdf:resource="http://iasted#Transport_vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Simulating -->
+
+    <owl:Class rdf:about="http://iasted#Simulating">
+        <rdfs:subClassOf rdf:resource="http://iasted#Research"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Single_hotel_room -->
+
+    <owl:Class rdf:about="http://iasted#Single_hotel_room">
+        <rdfs:subClassOf rdf:resource="http://iasted#Hotel_room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Social_program -->
+
+    <owl:Class rdf:about="http://iasted#Social_program">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Speaker -->
+
+    <owl:Class rdf:about="http://iasted#Speaker">
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#write"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Final_manuscript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Lecture"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Speaker_lecture -->
+
+    <owl:Class rdf:about="http://iasted#Speaker_lecture">
+        <rdfs:subClassOf rdf:resource="http://iasted#Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Sponsor -->
+
+    <owl:Class rdf:about="http://iasted#Sponsor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponzorship"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor_company_house"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#occupy"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Sponsor_city -->
+
+    <owl:Class rdf:about="http://iasted#Sponsor_city">
+        <rdfs:subClassOf rdf:resource="http://iasted#City"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Sponsor_company_house -->
+
+    <owl:Class rdf:about="http://iasted#Sponsor_company_house">
+        <rdfs:subClassOf rdf:resource="http://iasted#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor_city"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_situated_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_occupied_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Sponsor_state -->
+
+    <owl:Class rdf:about="http://iasted#Sponsor_state">
+        <rdfs:subClassOf rdf:resource="http://iasted#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Sponzorship -->
+
+    <owl:Class rdf:about="http://iasted#Sponzorship">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Sponsor"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Money"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#State -->
+
+    <owl:Class rdf:about="http://iasted#State">
+        <rdfs:comment>one of the political units that some countries, such as the US, are divided into</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Student_lecturer -->
+
+    <owl:Class rdf:about="http://iasted#Student_lecturer">
+        <rdfs:subClassOf rdf:resource="http://iasted#Lecturer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Student_non_speaker -->
+
+    <owl:Class rdf:about="http://iasted#Student_non_speaker">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#pay"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Student_registration_fee"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Non_speaker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Student_registration_fee -->
+
+    <owl:Class rdf:about="http://iasted#Student_registration_fee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Registration_fee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted#Student_lecturer"/>
+                            <rdf:Description rdf:about="http://iasted#Student_non_speaker"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Submission -->
+
+    <owl:Class rdf:about="http://iasted#Submission">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_writen_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Speaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Submissions_deadline -->
+
+    <owl:Class rdf:about="http://iasted#Submissions_deadline">
+        <rdfs:subClassOf rdf:resource="http://iasted#Deadline"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Tax -->
+
+    <owl:Class rdf:about="http://iasted#Tax">
+        <rdfs:subClassOf rdf:resource="http://iasted#Money"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Taxi -->
+
+    <owl:Class rdf:about="http://iasted#Taxi">
+        <rdfs:subClassOf rdf:resource="http://iasted#Transport_vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Technic_activity -->
+
+    <owl:Class rdf:about="http://iasted#Technic_activity">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Technical_commitee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Technical_commitee -->
+
+    <owl:Class rdf:about="http://iasted#Technical_commitee">
+        <rdfs:subClassOf rdf:resource="http://iasted#Delegate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#go_through"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Technic_activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Time -->
+
+    <owl:Class rdf:about="http://iasted#Time">
+        <rdfs:comment>the part of existence that is measured in minutes, days, years, etc., or this process considered as a whole</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Time_zone -->
+
+    <owl:Class rdf:about="http://iasted#Time_zone">
+        <rdfs:comment>one of many equal parts into which the world is divided. In any place within each part, the particular point in the day is the same, and is an hour in front of or behind that in the parts on either side</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Tip -->
+
+    <owl:Class rdf:about="http://iasted#Tip">
+        <rdfs:subClassOf rdf:resource="http://iasted#Money"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_paid_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_restaurant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Transparency -->
+
+    <owl:Class rdf:about="http://iasted#Transparency">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_prepared_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Speaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Transport_vehicle -->
+
+    <owl:Class rdf:about="http://iasted#Transport_vehicle">
+        <rdfs:subClassOf rdf:resource="http://iasted#Item"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_used_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Trip_city -->
+
+    <owl:Class rdf:about="http://iasted#Trip_city">
+        <rdfs:subClassOf rdf:resource="http://iasted#City"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_visited_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_Hiker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Trip_day -->
+
+    <owl:Class rdf:about="http://iasted#Trip_day">
+        <rdfs:subClassOf rdf:resource="http://iasted#Time"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_designed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Tutorial -->
+
+    <owl:Class rdf:about="http://iasted#Tutorial">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_given_by"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Tutorial_speaker"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Lecture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Tutorial_speaker -->
+
+    <owl:Class rdf:about="http://iasted#Tutorial_speaker">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#give"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Plenary_lecture"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Author"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#speak_in"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Conference_hall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Value_added_tax -->
+
+    <owl:Class rdf:about="http://iasted#Value_added_tax">
+        <rdfs:subClassOf rdf:resource="http://iasted#Tax"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Van -->
+
+    <owl:Class rdf:about="http://iasted#Van">
+        <rdfs:subClassOf rdf:resource="http://iasted#Transport_vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Video_cassette_player -->
+
+    <owl:Class rdf:about="http://iasted#Video_cassette_player">
+        <rdfs:subClassOf rdf:resource="http://iasted#Audiovisual_equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Video_presentation -->
+
+    <owl:Class rdf:about="http://iasted#Video_presentation">
+        <rdfs:subClassOf rdf:resource="http://iasted#Presentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Viza -->
+
+    <owl:Class rdf:about="http://iasted#Viza">
+        <rdfs:subClassOf rdf:resource="http://iasted#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#is_needed_for"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Delegate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Welcome_address -->
+
+    <owl:Class rdf:about="http://iasted#Welcome_address">
+        <rdfs:subClassOf rdf:resource="http://iasted#Conference_activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Worker_lecturer -->
+
+    <owl:Class rdf:about="http://iasted#Worker_lecturer">
+        <rdfs:subClassOf rdf:resource="http://iasted#Lecturer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted#Worker_non_speaker -->
+
+    <owl:Class rdf:about="http://iasted#Worker_non_speaker">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted#pay"/>
+                <owl:someValuesFrom rdf:resource="http://iasted#Nonauthor_registration_fee"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted#Non_speaker"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#Cancun -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Cancun">
+        <rdf:type rdf:resource="http://iasted#Conference_city"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Chichen_Itza -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Chichen_Itza">
+        <rdf:type rdf:resource="http://iasted#Trip_city"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Mexico -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Mexico">
+        <rdf:type rdf:resource="http://iasted#Conference_state"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#peso -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#peso">
+        <rdf:type rdf:resource="http://iasted#Currency"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
