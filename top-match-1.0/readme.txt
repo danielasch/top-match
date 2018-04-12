@@ -53,7 +53,7 @@
 |        ex: C:/Users/.../alignment.rdf                 |
 |    -[top ontology] (dolce, sumo or dul)               |
 |        ex: dolce                                      |
-|    -[alignment technique] (0, 1, 2 or 3)              |
+|    -[alignment technique] (1, 2, or 3)                |
 |        ex: 2                                          |
 |    -[reference alignment path] OPTIONAL               |
 |        ex: C:/Users/.../referenceAlign.rdf            |
