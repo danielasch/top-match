@@ -7,7 +7,6 @@
 |	This product includes software developed at PUCRS  	|
 |	by the NLP team 									|
 |	(http://www.inf.pucrs.br/linatural/wordpress/).		|
-|														|
 +-------------------------------------------------------+
 |				About Top-match							|
 |														|
