@@ -44,6 +44,9 @@
 |                                                       |
 |    $~java -jar top-match.jar [PARAMETERS]             |
 |                                                       |
+|    Make sure to NOT use backslash, but the slash to   | 
+|    all paths.                                         |
+|                                                       |
 |    The parameters order are:                          |
 |                                                       |
 |    -[domain ontology path]                            |
